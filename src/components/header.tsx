@@ -1,6 +1,7 @@
 import logo from '../assets/Logo.png'
-import menu from '../assets/menu.svg'
-import search from '../assets/search.svg'
+import menuIcon from '../assets/menu.svg'
+import searchIcon from '../assets/search.svg'
+import avatar from '../assets/Avatar.png'
 
 export function Header() {
     return (
@@ -12,7 +13,7 @@ export function Header() {
             />
 
             <input
-                className="w-2/3 bg-slate-700 p-3 rounded-xl outline-none duration-300 ease-out hover:bg-slate-600"
+                className="hidden md:inline-block w-2/3 bg-slate-700 p-3 rounded-xl outline-none duration-300 ease-out hover:bg-slate-600"
                 type="text"
                 placeholder="Busque por algo"
             />
@@ -20,13 +21,22 @@ export function Header() {
             <div className="flex">
                 <img
                     className="md:hidden"
-                    src={search} 
+                    src={searchIcon} 
                     alt="" 
                 />
-                <img 
-                    src={menu} 
+                <img
+                    className="lg:hidden"
+                    src={menuIcon} 
                     alt="" 
                 />
+            </div>
+
+            <div className="hidden lg:flex justify-center items-center gap-3">
+                <img
+                    src={avatar}
+                    alt="" 
+                />
+                <p>Harry</p>
             </div>
         </header>
     )
