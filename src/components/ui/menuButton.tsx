@@ -4,15 +4,16 @@ interface MenuButtonProps {
     selected: boolean
     icon: string
     text: string
+	mobile: boolean
     onClick: (id: number) => void
-}
+} 
 
 export function MenuButton(props: MenuButtonProps) {
 	return (
 		<a
-			className={`flex items-center gap-4 ${
+			className={`flex items-center text-center text-wrap gap-4 ${
 				props.selected ? "text-white" : "text-white/40"
-			}`}
+			} ${props.mobile ? "flex-row-reverse" : "row"}`}
 			href="#"
             onClick={() => props.onClick(props.id)}
 		>

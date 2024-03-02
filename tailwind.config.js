@@ -19,6 +19,19 @@ export default {
       },
       boxShadow: {
         'alura': '0px 16px rgba(0, 0, 0, 0.24',
+      },
+      keyframes: {
+        slideRight: {
+          from: {
+            transform: 'translateX(100%)',
+          },
+          to: {
+            transform: 'translateX(0)',
+          }
+        }
+      },
+      animation: {
+        'slide-right': 'slideRight 0.3s ease-out'
       }
     },
   },

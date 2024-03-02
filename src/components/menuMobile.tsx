@@ -5,7 +5,7 @@ import { MenuButton } from "./ui/menuButton";
 import codeIcon from "../assets/code.svg";
 import communityIcon from "../assets/community.svg";
 
-export function Menu() {
+export function MobileMenu() {
     const [buttons, setButtons] = useState([
         { id: 1, icon: codeIcon, text: "Editor de código", selectedButton: true },
         { id: 2, icon: communityIcon, text: "Comunidade", selectedButton: false }
@@ -20,9 +20,9 @@ export function Menu() {
         setButtons(newButtons);
     }
 
-	return (
-		<div className="hidden lg:flex flex-col items-start w-[14%] gap-4">
-			<h3 className="sidebar-title uppercase">Menu</h3>
+    return (
+        <div className="flex flex-col items-end h-full px-2 gap-4">
+            <h3 className="sidebar-title uppercase">Menu</h3>
 			<div className="flex flex-col gap-4">
                 {buttons.map(button => (
                     <MenuButton
@@ -31,11 +31,11 @@ export function Menu() {
                         selected={button.selectedButton}
                         icon={button.icon}
                         text={button.text}
-                        mobile={false}
+                        mobile={true}
                         onClick={() => handleSelectedButton(button.id)}
                     />
                 ))}
 			</div>
-		</div>
-	);
+        </div>
+    )
 }
