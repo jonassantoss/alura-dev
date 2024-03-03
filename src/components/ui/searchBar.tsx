@@ -1,10 +1,10 @@
-import { InputHTMLAttributes } from "react"
+import { InputHTMLAttributes } from "react";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
 
 }
 
-export function Input(props: InputProps) {
+export function SearchBar(props: SearchBarProps) {
     return (
         <input
             {...props}
