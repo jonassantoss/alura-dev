@@ -1,16 +1,19 @@
+import { Link } from "react-router-dom";
+ 
 interface MenuButtonProps {
     id: number
     selected: boolean
     icon: string
     text: string
+	link: string
     onClick: (id: number) => void
 } 
 
 export function MenuButton(props: MenuButtonProps) {
 	return (
-		<a
-			className={`flex items-center text-center text-wrap gap-4 ${props.selected ? "text-white" : "text-white/40"}`}
-			href="#"
+		<Link
+			className={`flex items-center text-left text-wrap gap-4 ${props.selected ? "text-white" : "text-white/40"}`}
+			to={`${props.link}`}
             onClick={() => props.onClick(props.id)}
 		>
 			<img
@@ -21,6 +24,6 @@ export function MenuButton(props: MenuButtonProps) {
 				alt=""
 			/>
 			{props.text}
-		</a>
+		</Link>
 	);
 }

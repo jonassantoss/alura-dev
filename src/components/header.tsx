@@ -1,6 +1,7 @@
 import { MobileMenu } from './mobileMenu';
 import { SearchBar } from './ui/searchBar';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 
 
@@ -23,7 +24,7 @@ export function Header() {
     }
 
     return (
-        <div className="p-5 flex justify-between items-center">
+        <div className="w-full flex justify-between items-center gap-8">
             <div className="relative flex items-center">
                 {searchIconState === X && (
                     <SearchBar
@@ -31,14 +32,16 @@ export function Header() {
                         placeholder="Busque por algo"
                     />
                 )}
-                <img
-                    className={`h-1/2 ${searchIconState === X ? 'hidden' : 'block'}`}
-                    src={logo}
-                    alt=""
-                />
+                <Link to={"/"}>
+                    <img
+                        className={`h-1/2 ${searchIconState === X ? 'hidden' : 'block'}`}
+                        src={logo}
+                        alt=""
+                    />
+                </Link>
             </div>
 
-            <div className="hidden w-2/3 md:inline-block">
+            <div className="hidden md:inline-flex ml-9 w-[54%]">
                 <SearchBar
                     placeholder="Busque por algo"
                 />

@@ -8,8 +8,8 @@ import avatar from '../assets/Avatar.png'
 
 export function MobileMenu() {
     const [buttons, setButtons] = useState([
-        { id: 1, icon: codeIcon, text: "Editor de código", selectedButton: true },
-        { id: 2, icon: communityIcon, text: "Comunidade", selectedButton: false }
+        { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: true },
+        { id: 2, icon: communityIcon, text: "Comunidade", link: "/comunidade", selectedButton: false }
     ])
 
     function handleSelectedButton(id: number) {
@@ -24,7 +24,7 @@ export function MobileMenu() {
     return (
         <DropdownMenu.Portal>
             <DropdownMenu.Content
-                className="flex flex-col h-full p-6 gap-4 bg-slate-700 rounded-md shadow-alura will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
+                className="flex flex-col h-full p-6 gap-4 mt-4 mr-4 bg-slate-700 rounded-md shadow-alura will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
                 sideOffset={5}
             >
                 {buttons.map(button => (
@@ -34,6 +34,7 @@ export function MobileMenu() {
                             selected={button.selectedButton}
                             icon={button.icon}
                             text={button.text}
+                            link={button.link}
                             onClick={() => handleSelectedButton(button.id)}
                         />
                     </DropdownMenu.Item>

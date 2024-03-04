@@ -7,8 +7,8 @@ import communityIcon from "../assets/community.svg";
 
 export function Menu() {
     const [buttons, setButtons] = useState([
-        { id: 1, icon: codeIcon, text: "Editor de código", selectedButton: true },
-        { id: 2, icon: communityIcon, text: "Comunidade", selectedButton: false }
+        { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: true },
+        { id: 2, icon: communityIcon, text: "Comunidade", link: "/comunidade", selectedButton: false }
     ])
     
     function handleSelectedButton(id: number) {
@@ -21,7 +21,7 @@ export function Menu() {
     }
 
 	return (
-		<div className="hidden lg:flex flex-col items-start w-[14%] gap-4">
+		<div className="hidden lg:flex flex-col w-[30%] items-start gap-4">
 			<h3 className="sidebar-title uppercase">Menu</h3>
 			<div className="flex flex-col gap-4">
                 {buttons.map(button => (
@@ -31,7 +31,7 @@ export function Menu() {
                         selected={button.selectedButton}
                         icon={button.icon}
                         text={button.text}
-                        mobile={false}
+                        link={button.link}
                         onClick={() => handleSelectedButton(button.id)}
                     />
                 ))}

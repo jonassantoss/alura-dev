@@ -12,6 +12,9 @@ export default {
           200: '#7BA4FC',
           300: '#5081FB',
           950: '#051D3B'
+        },
+        gray: {
+          dark: '#141414'
         }
       },
       fontFamily: {
