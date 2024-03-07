@@ -4,11 +4,13 @@ import { MenuButton } from "./ui/menuButton";
 
 import codeIcon from "../assets/code.svg";
 import communityIcon from "../assets/community.svg";
+import { useLocation } from "react-router-dom";
 
 export function Menu() {
+    const location = useLocation().pathname;
     const [buttons, setButtons] = useState([
-        { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: true },
-        { id: 2, icon: communityIcon, text: "Comunidade", link: "/comunidade", selectedButton: false }
+        { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: location === '/' },
+        { id: 2, icon: communityIcon, text: "Comunidade", link: "/comunidade", selectedButton: location === '/comunidade' }
     ])
     
     function handleSelectedButton(id: number) {

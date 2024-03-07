@@ -14,8 +14,9 @@ export default {
           950: '#051D3B'
         },
         gray: {
+          light: '#C4C4C4',
           dark: '#141414'
-        }
+        },
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif']

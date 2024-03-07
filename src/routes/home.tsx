@@ -14,7 +14,6 @@ export function Home() {
   const [codeString, setCodeString] = useState("");
   const [isHighlighted, setIsHighlighted] = useState(false);
   const pickerID = `color-picker_${Date.now()}`;
-  const select = document.querySelector("#selectLanguages");
 
   const selectItems = [
     { id: 0, name: "HTML", value: "xml" },
@@ -67,7 +66,7 @@ export function Home() {
 
           <button
             onClick={showHighlightCode}
-            className="bg-blue-300/[8%] p-3 rounded-lg border-4 border-transparent hover:bg-blue-300/15 active:bg-blue-300/25 active:border-blue-300/15"
+            className="bg-blue-300/[8%] p-3 rounded-lg border-4 border-transparent duration-300 hover:bg-blue-300/15 active:bg-blue-300/25 active:border-blue-300/15"
           >
             Visualizar com highlight
           </button>

@@ -1,0 +1,44 @@
+{
+    "projects": [
+        {
+            "id": "cf5d6645-d2b6-4f3c-9d9c-3d312707f122",
+            "title": "Titulo do projeto",
+            "description": "Essa é a descrição do meu projeto",
+            "comments": 9,
+            "likes": 9,
+            "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj) const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res) const unfold = (f, seed) => { const go = (f, seed, acc) => { const res = f(seed) return res ? go(f, res[1], acc.concat([res[0]])) : acc } return go(f, seed, []) }",
+            "color": "#9AFF6B",
+            "language": "javascript"
+        },
+        {
+            "id": "aee65051-46ea-4c14-8739-57b6098068ff",
+            "title": "Titulo do projeto",
+            "description": "Essa é a descrição do meu projeto",
+            "comments": 9,
+            "likes": 9,
+            "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj) const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res) const unfold = (f, seed) => { const go = (f, seed, acc) => { const res = f(seed) return res ? go(f, res[1], acc.concat([res[0]])) : acc } return go(f, seed, []) }",
+            "color": "#6B83FF",
+            "language": "css"
+        },
+        {
+            "id": "bfcdeb69-93fb-4960-94b3-d767ca828e1b",
+            "title": "Titulo do projeto",
+            "description": "Essa é a descrição do meu projeto",
+            "comments": 9,
+            "likes": 9,
+            "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj) const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res) const unfold = (f, seed) => { const go = (f, seed, acc) => { const res = f(seed) return res ? go(f, res[1], acc.concat([res[0]])) : acc } return go(f, seed, []) }",
+            "color": "#FFC46B",
+            "language": "javascript"
+        },
+        {
+            "id": "d3545f48-8f97-43fb-ae7a-d52e6c8060a3",
+            "title": "Titulo do projeto",
+            "description": "Essa é a descrição do meu projeto",
+            "comments": 9,
+            "likes": 9,
+            "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj) const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res) const unfold = (f, seed) => { const go = (f, seed, acc) => { const res = f(seed) return res ? go(f, res[1], acc.concat([res[0]])) : acc } return go(f, seed, []) }",
+            "color": "#9AFF6B",
+            "language": "xml"
+        }
+    ]
+}
