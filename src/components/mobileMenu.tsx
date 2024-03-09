@@ -5,11 +5,13 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import codeIcon from "../assets/code.svg";
 import communityIcon from "../assets/community.svg";
 import avatar from '../assets/Avatar.png'
+import { useLocation } from "react-router-dom";
 
 export function MobileMenu() {
+    const location = useLocation().pathname
     const [buttons, setButtons] = useState([
-        { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: true },
-        { id: 2, icon: communityIcon, text: "Comunidade", link: "/comunidade", selectedButton: false }
+        { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: location === '/' },
+        { id: 2, icon: communityIcon, text: "Comunidade", link: "/comunidade", selectedButton: location === '/comunidade' }
     ])
 
     function handleSelectedButton(id: number) {

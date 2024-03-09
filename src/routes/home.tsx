@@ -3,18 +3,37 @@ import { Menu } from "../components/menu";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import arrowIcon from "../assets/arrow.svg";
+import avatar from "../assets/Avatar.png"
 
 import { ChangeEvent, useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { ProjectsService } from "../../backend/projects-service";
+
+export interface ProjectPropsPost {
+  title: string
+  description: string
+  code: string
+  color: string
+  language: string
+}
 
 export function Home() {
   const [selectedLanguage, setSelectedLanguage] = useState("xml")
   const [color, setColor] = useState("#FFFFFF");
   const [codeString, setCodeString] = useState("");
+  const [titleValue, setTitleValue] = useState("");
+  const [descriptionValue, setDescriptionValue] = useState("");
   const [isHighlighted, setIsHighlighted] = useState(false);
   const pickerID = `color-picker_${Date.now()}`;
-  const select = document.querySelector("#selectLanguages");
+
+  const postValues: ProjectPropsPost = {
+    title: titleValue,
+    description: descriptionValue,
+    code: codeString,
+    color: color,
+    language: selectedLanguage
+  }
 
   const selectItems = [
     { id: 0, name: "HTML", value: "xml" },
@@ -36,24 +55,51 @@ export function Home() {
     setCodeString(value);
   }
 
-  const handleColorChange = (e: ChangeEvent<HTMLInputElement>) => {
+  function handleTitleValue(event: ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value;
+    setTitleValue(value);
+  }
+
+  function handleDescriptionValue(event: ChangeEvent<HTMLTextAreaElement>) {
+    const value = event.target.value;
+    setDescriptionValue(value);
+  }
+
+  function handleColorChange(e: ChangeEvent<HTMLInputElement>) {
     setColor(e.target.value)
   }
 
+  function postProject(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    ProjectsService.postProjects(postValues);
+    setCodeString("")
+    setTitleValue("")
+    setDescriptionValue("")
+    setSelectedLanguage("xml")
+    setColor("#FFFFFF")
+  }
+
   return (
-    <div className="w-full h-full py-3 px-5 space-y-10">
+    <div className="w-full h-full space-y-10">
       <Header />
-      <div className="flex flex-col items-start gap-10 lg:flex-row lg:gap-20">
+      <div className="h-full flex flex-col items-start gap-10 lg:flex-row lg:gap-20">
         <Menu />
 
-        <div className="w-full flex flex-col justify-center gap-8">
-          <div className="flex min-h-[399px] rounded-lg p-8" style={{ backgroundColor: color }}>
-            <div className="flex bg-gray-dark w-full flex-grow p-4 rounded-lg min-h-[399px]" >
+        <div className="w-full flex flex-col justify-center gap-8 flex-grow-2">
+          <div className="flex min-h-[300px] rounded-lg p-6" style={{ backgroundColor: color }}>
+            <div className="flex flex-col gap-2 bg-gray-dark w-full flex-grow p-4 rounded-lg" >
+              <div className="flex gap-2">
+                <div className="bg-mac-red size-3 rounded-full" />
+                <div className="bg-mac-yellow size-3 rounded-full" />
+                <div className="bg-mac-green size-3 rounded-full" />
+              </div>
+
               <textarea
-                className={`${!isHighlighted ? 'block' : 'hidden'} outline-none bg-transparent w-full resize-none auto-resize`}
+                className={`${!isHighlighted ? 'block' : 'hidden'} outline-none bg-transparent w-full h-full resize-none font-roboto-mono`}
                 onChange={handleCodeString}
                 value={codeString}
               />
+
               {isHighlighted && (
                 <SyntaxHighlighter language={selectedLanguage} style={atomOneDark} customStyle={{
                   width: "100%",
@@ -67,22 +113,26 @@ export function Home() {
 
           <button
             onClick={showHighlightCode}
-            className="bg-blue-300/[8%] p-3 rounded-lg border-4 border-transparent hover:bg-blue-300/15 active:bg-blue-300/25 active:border-blue-300/15"
+            className="bg-blue-300/[8%] p-3 rounded-lg border-4 border-transparent duration-300 hover:bg-blue-300/15 active:bg-blue-300/25 active:border-blue-300/15"
           >
             Visualizar com highlight
           </button>
         </div>
 
-        <form className="space-y-10 w-full lg:w-[35%]">
+        <form className="space-y-10 w-full lg:w-[25%]" onSubmit={postProject}>
           <div className="space-y-4">
             <h3 className="sidebar-title uppercase">Seu Projeto</h3>
             <Input
               type="text"
               placeholder="Nome do seu projeto"
+              value={titleValue}
+              onChange={handleTitleValue}
               required
             />
             <Textarea
               placeholder="Descrição do projeto"
+              value={descriptionValue}
+              onChange={handleDescriptionValue}
             />
           </div>
 
@@ -131,6 +181,7 @@ export function Home() {
           </div>
 
           <button
+            type="submit"
             className="box-border border-transparent border-4 w-full bg-blue-300 text-blue-950 text-center p-2 rounded-lg duration-300 hover:bg-blue-200 active:border-blue-300/75"
           >
             Salvar projeto

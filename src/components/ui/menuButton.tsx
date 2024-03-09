@@ -12,14 +12,12 @@ interface MenuButtonProps {
 export function MenuButton(props: MenuButtonProps) {
 	return (
 		<Link
-			className={`flex items-center text-left text-wrap gap-4 ${props.selected ? "text-white" : "text-white/40"}`}
+			className={`flex items-center text-left text-wrap gap-4 group ${props.selected ? "text-white" : "text-white/40 hover:text-gray-light"}`}
 			to={`${props.link}`}
             onClick={() => props.onClick(props.id)}
 		>
 			<img
-				className={`${
-					props.selected ? "bg-blue-500" : "bg-blue-300/15"
-				} p-4 rounded-2xl`}
+				className={`${props.selected ? "bg-blue-300" : "bg-blue-300/15 group-hover:bg-blue-300/65"} p-4 rounded-2xl`}
 				src={props.icon}
 				alt=""
 			/>

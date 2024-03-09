@@ -11,14 +11,22 @@ export default {
           100: '#96B9FD',
           200: '#7BA4FC',
           300: '#5081FB',
-          950: '#051D3B'
+          950: '#051D3B',
+          960: '#041832'
         },
         gray: {
+          light: '#C4C4C4',
           dark: '#141414'
+        },
+        mac: {
+          red: '#FF5F56',
+          yellow: '#FFBD2E',
+          green: '#27C93F'
         }
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif']
+        inter: ['Inter', 'sans-serif'],
+        'roboto-mono': ['Roboto Mono', 'sans-serif']
       },
       boxShadow: {
         'alura': '0px 16px rgba(0, 0, 0, 0.24',
