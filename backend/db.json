@@ -1,44 +1,64 @@
 {
-    "projects": [
-        {
-            "id": "cf5d6645-d2b6-4f3c-9d9c-3d312707f122",
-            "title": "Titulo do projeto",
-            "description": "Essa é a descrição do meu projeto",
-            "comments": 9,
-            "likes": 9,
-            "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj) const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res) const unfold = (f, seed) => { const go = (f, seed, acc) => { const res = f(seed) return res ? go(f, res[1], acc.concat([res[0]])) : acc } return go(f, seed, []) }",
-            "color": "#9AFF6B",
-            "language": "javascript"
-        },
-        {
-            "id": "aee65051-46ea-4c14-8739-57b6098068ff",
-            "title": "Titulo do projeto",
-            "description": "Essa é a descrição do meu projeto",
-            "comments": 9,
-            "likes": 9,
-            "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj) const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res) const unfold = (f, seed) => { const go = (f, seed, acc) => { const res = f(seed) return res ? go(f, res[1], acc.concat([res[0]])) : acc } return go(f, seed, []) }",
-            "color": "#6B83FF",
-            "language": "css"
-        },
-        {
-            "id": "bfcdeb69-93fb-4960-94b3-d767ca828e1b",
-            "title": "Titulo do projeto",
-            "description": "Essa é a descrição do meu projeto",
-            "comments": 9,
-            "likes": 9,
-            "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj) const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res) const unfold = (f, seed) => { const go = (f, seed, acc) => { const res = f(seed) return res ? go(f, res[1], acc.concat([res[0]])) : acc } return go(f, seed, []) }",
-            "color": "#FFC46B",
-            "language": "javascript"
-        },
-        {
-            "id": "d3545f48-8f97-43fb-ae7a-d52e6c8060a3",
-            "title": "Titulo do projeto",
-            "description": "Essa é a descrição do meu projeto",
-            "comments": 9,
-            "likes": 9,
-            "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj) const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res) const unfold = (f, seed) => { const go = (f, seed, acc) => { const res = f(seed) return res ? go(f, res[1], acc.concat([res[0]])) : acc } return go(f, seed, []) }",
-            "color": "#9AFF6B",
-            "language": "xml"
-        }
-    ]
+  "projects": [
+    {
+      "key": "cf5d6645-d2b6-4f3c-9d9c-3d312707f122",
+      "owner": "Harry",
+      "avatar": "src\\assets\\Avatar.png",
+      "title": "Titulo do projeto",
+      "description": "Essa é a descrição do meu projeto",
+      "comments": 9,
+      "likes": 9,
+      "code": "const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)\n\nconst compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)\n\nconst unfold = (f, seed) => {\n  const go = (f, seed, acc) => {\n    const res = f(seed)\n    return res ? go(f, res[1], acc.concat([res[0]])) : acc\n  }\n  return go(f, seed, [])\n}",
+      "color": "#9AFF6B",
+      "language": "javascript"
+    },
+    {
+      "key": "aee65051-46ea-4c14-8739-57b6098068ff",
+      "owner": "Harry",
+      "avatar": "src\\assets\\Avatar.png",
+      "title": "Titulo do projeto",
+      "description": "Essa é a descrição do meu projeto",
+      "comments": 9,
+      "likes": 9,
+      "code": "@import url('https://fonts.googleapis.com/css?family=Nova+Mono&display=swap');\n\n* {\n\tbox-sizing: border-box;\n}\n\nbody {\n\tmin-height: 100vh;\n\tbackground-color: #18181c;\n\tdisplay: flex;\n\talign-items: center;\n",
+      "color": "#6B83FF",
+      "language": "css"
+    },
+    {
+      "key": "bfcdeb69-93fb-4960-94b3-d767ca828e1b",
+      "owner": "Harry",
+      "avatar": "src\\assets\\Avatar.png",
+      "title": "Titulo do projeto",
+      "description": "Essa é a descrição do meu projeto",
+      "comments": 9,
+      "likes": 9,
+      "code": "@import url('https://fonts.googleapis.com/css?family=Nova+Mono&display=swap');\n\n* {\n\tbox-sizing: border-box;\n}\n\nbody {\n\tmin-height: 100vh;\n\tbackground-color: #18181c;\n\tdisplay: flex;\n\talign-items: center;\n",
+      "color": "#FFC46B",
+      "language": "javascript"
+    },
+    {
+      "key": "d3545f48-8f97-43fb-ae7a-d52e6c8060a3",
+      "owner": "Harry",
+      "avatar": "src\\assets\\Avatar.png",
+      "title": "Titulo do projeto",
+      "description": "Essa é a descrição do meu projeto",
+      "comments": 9,
+      "likes": 9,
+      "code": "<!-- page heading -->\n<div class='container container-dark p-y-md'>\n  <div class='header-content'>\n    <h1>Material Search Animation</h1>\n    <h2>Usign CSS Transitions</h2>\n  </div>\n</div>\n\n\n<!-- page content + floating button -->\n<div class='container p-y-md'>\n  <div class='control'>\n    <div class='btn-material'></div>\n",
+      "color": "#FF6BCD",
+      "language": "xml"
+    },
+    {
+      "id": "48315e0e-2037-447f-b575-ed4e80c6362a",
+      "owner": "Harry",
+      "avatar": "/src/assets/Avatar.png",
+      "title": "Teste 1",
+      "description": "Descrição do teste 1",
+      "comments": 0,
+      "likes": 0,
+      "code": "import hljs from 'highlight.js/lib/common'\nimport css from 'highlight.js/lib/languages/css'\nimport javascript from 'highlight.js/lib/languages/javascript'\nimport 'highlight.js/styles/github-dark.css'\n\nhljs.registerLanguage(`css`, css);\nhljs.registerLanguage('javascript', javascript)\n\nexport function highlightCode(select, codeArea) {\n    const code = codeArea.innerText\n    \n    codeArea.innerHTML = `\n    <code\n        class=\"hljs ${select.value}\"\n        className=\"outline-none\"\n        id=\"preview\"\n        aria-label=\"Editor de código\"\n    ></code>`\n\n    codeArea.querySelector('code').textContent = code\n    hljs.highlightElement(codeArea.querySelector('code'))\n}",
+      "color": "#6f04a9",
+      "language": "javascript"
+    }
+  ]
 }

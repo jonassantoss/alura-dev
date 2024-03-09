@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { AllHTMLAttributes, useState } from "react";
 import { MenuButton } from "./ui/menuButton";
 
 
@@ -6,7 +6,11 @@ import codeIcon from "../assets/code.svg";
 import communityIcon from "../assets/community.svg";
 import { useLocation } from "react-router-dom";
 
-export function Menu() {
+interface MenuProps extends AllHTMLAttributes<HTMLElement> {
+
+}
+
+export function Menu(props: MenuProps) {
     const location = useLocation().pathname;
     const [buttons, setButtons] = useState([
         { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: location === '/' },
@@ -23,7 +27,10 @@ export function Menu() {
     }
 
 	return (
-		<div className="hidden lg:flex flex-col w-[30%] items-start gap-4">
+		<div 
+            {...props}
+            className="hidden lg:flex flex-col w-[22%] items-start gap-4"
+        >
 			<h3 className="sidebar-title uppercase">Menu</h3>
 			<div className="flex flex-col gap-4">
                 {buttons.map(button => (

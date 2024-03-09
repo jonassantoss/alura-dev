@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource/roboto-mono':
+    specifier: ^5.0.17
+    version: 5.0.17
   '@radix-ui/react-dialog':
     specifier: ^1.0.5
     version: 1.0.5(@types/react-dom@18.2.19)(@types/react@18.2.60)(react-dom@18.2.0)(react@18.2.0)
@@ -26,6 +29,9 @@ dependencies:
   react-syntax-highlighter:
     specifier: ^15.5.0
     version: 15.5.0(react@18.2.0)
+  uuid:
+    specifier: ^9.0.1
+    version: 9.0.1
 
 devDependencies:
   '@types/react':
@@ -37,6 +43,9 @@ devDependencies:
   '@types/react-syntax-highlighter':
     specifier: ^15.5.11
     version: 15.5.11
+  '@types/uuid':
+    specifier: ^9.0.8
+    version: 9.0.8
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.0.2
     version: 7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3)
@@ -584,6 +593,10 @@ packages:
 
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+    dev: false
+
+  /@fontsource/roboto-mono@5.0.17:
+    resolution: {integrity: sha512-MU6FrAyG7DWMCL8mu0JDPvB2tnFcn/lYvVKixzqHb2uefRsLaD6OBFfF1q5RMFsKcFHyPySHM7ZcGw/Q6A1/FA==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
@@ -1360,6 +1373,10 @@ packages:
   /@types/unist@2.0.10:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
     dev: false
+
+  /@types/uuid@9.0.8:
+    resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
+    dev: true
 
   /@typescript-eslint/eslint-plugin@7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3):
     resolution: {integrity: sha512-j6vT/kCulhG5wBmGtstKeiVr1rdXE4nk+DT1k6trYkwlrvW9eOF5ZbgKnd/YR6PcM4uTEXa0h6Fcvf6X7Dxl0w==}
@@ -3804,6 +3821,11 @@ packages:
   /utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
+    dev: false
+
+  /uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
     dev: false
 
   /vary@1.1.2:

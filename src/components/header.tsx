@@ -25,7 +25,7 @@ export function Header() {
 
     return (
         <div className="w-full flex justify-between items-center gap-8">
-            <div className="relative flex items-center">
+            <div className="relative flex items-center w-[33%]">
                 {searchIconState === X && (
                     <SearchBar
                         className={`absolute top-1/2 transform -translate-y-1/2 ${searchIconState === X ? 'block' : 'hidden'}`}
@@ -41,7 +41,7 @@ export function Header() {
                 </Link>
             </div>
 
-            <div className="hidden md:inline-flex ml-9 w-[54%]">
+            <div className="hidden md:inline-flex w-[69%]">
                 <SearchBar
                     placeholder="Busque por algo"
                 />
@@ -73,7 +73,7 @@ export function Header() {
                 </DropdownMenu.Root>
             </div>
 
-            <div className="hidden lg:flex justify-center items-center gap-3">
+            <div className="hidden lg:flex justify-end items-center gap-3 w-[33%]">
                 <img
                     src={avatar}
                     alt=""
