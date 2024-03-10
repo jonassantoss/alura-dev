@@ -3,7 +3,6 @@ import { Menu } from "../components/menu";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import arrowIcon from "../assets/arrow.svg";
-import avatar from "../assets/Avatar.png"
 
 import { ChangeEvent, useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";

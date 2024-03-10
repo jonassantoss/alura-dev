@@ -10,6 +10,7 @@ Para o utilizar, clique no link a seguir:
 - CSS3
 - Typescript
 - React
+- Vite
 - Tailwind
 - Json-server
 - Radix UI
