@@ -2,8 +2,6 @@
 
 Este é um desafio desenvolvido para fins didaticos da Alura. O projeto consiste em uma plataforma de compartilhamento de códigos entre uma comunidade ficticia de desenvolvedores, utilizando requisições de uma Fake API mockando um arquivo json com json-server.
 
-Para o utilizar, clique no link a seguir:
-
 ## Tecnologias Utilizadas
 
 - HTML5
