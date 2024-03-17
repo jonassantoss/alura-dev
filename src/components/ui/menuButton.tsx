@@ -6,7 +6,6 @@ interface MenuButtonProps {
     icon: string
     text: string
 	link: string
-    onClick: (id: number) => void
 } 
 
 export function MenuButton(props: MenuButtonProps) {
@@ -14,7 +13,6 @@ export function MenuButton(props: MenuButtonProps) {
 		<Link
 			className={`flex items-center text-left text-wrap gap-4 group ${props.selected ? "text-white" : "text-white/40 hover:text-gray-light"}`}
 			to={`${props.link}`}
-            onClick={() => props.onClick(props.id)}
 		>
 			<img
 				className={`${props.selected ? "bg-blue-300" : "bg-blue-300/15 group-hover:bg-blue-300/65"} p-4 rounded-2xl`}

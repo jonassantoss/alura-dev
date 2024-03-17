@@ -1,4 +1,4 @@
-import { AllHTMLAttributes, useState } from "react";
+import { AllHTMLAttributes } from "react";
 import { MenuButton } from "./ui/menuButton";
 
 
@@ -12,19 +12,10 @@ interface MenuProps extends AllHTMLAttributes<HTMLElement> {
 
 export function Menu(props: MenuProps) {
     const location = useLocation().pathname;
-    const [buttons, setButtons] = useState([
+    const buttons = [
         { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: location === '/' },
         { id: 2, icon: communityIcon, text: "Comunidade", link: "/comunidade", selectedButton: location === '/comunidade' }
-    ])
-    
-    function handleSelectedButton(id: number) {
-        const newButtons = buttons.map(button => ({
-            ...button,
-            selectedButton: button.id === id,
-        }));
-    
-        setButtons(newButtons);
-    }
+    ]
 
 	return (
 		<div 
@@ -41,7 +32,6 @@ export function Menu(props: MenuProps) {
                         icon={button.icon}
                         text={button.text}
                         link={button.link}
-                        onClick={() => handleSelectedButton(button.id)}
                     />
                 ))}
 			</div>

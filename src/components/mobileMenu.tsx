@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { MenuButton } from "./ui/menuButton";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 
@@ -9,19 +8,10 @@ import { useLocation } from "react-router-dom";
 
 export function MobileMenu() {
     const location = useLocation().pathname
-    const [buttons, setButtons] = useState([
+    const buttons= [
         { id: 1, icon: codeIcon, text: "Editor de código", link: "/",  selectedButton: location === '/' },
         { id: 2, icon: communityIcon, text: "Comunidade", link: "/comunidade", selectedButton: location === '/comunidade' }
-    ])
-
-    function handleSelectedButton(id: number) {
-        const newButtons = buttons.map(button => ({
-            ...button,
-            selectedButton: button.id === id,
-        }));
-
-        setButtons(newButtons);
-    }
+    ]
 
     return (
         <DropdownMenu.Portal>
@@ -37,7 +27,6 @@ export function MobileMenu() {
                             icon={button.icon}
                             text={button.text}
                             link={button.link}
-                            onClick={() => handleSelectedButton(button.id)}
                         />
                     </DropdownMenu.Item>
                 ))}

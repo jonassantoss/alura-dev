@@ -2,20 +2,13 @@ import { Header } from "../components/header";
 import { Menu } from "../components/menu";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
-import arrowIcon from "../assets/arrow.svg";
 
 import { ChangeEvent, useState } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { ProjectsService } from "../../backend/projects-service";
-
-export interface ProjectPropsPost {
-  title: string
-  description: string
-  code: string
-  color: string
-  language: string
-}
+import SyntaxHighlighter from "react-syntax-highlighter";
+import arrowIcon from "../assets/arrow.svg";
+import { ExportButton } from "../components/ui/exportButton";
 
 export function Home() {
   const [selectedLanguage, setSelectedLanguage] = useState("xml")
@@ -24,26 +17,37 @@ export function Home() {
   const [titleValue, setTitleValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   const [isHighlighted, setIsHighlighted] = useState(false);
-  const pickerID = `color-picker_${Date.now()}`;
-
-  const postValues: ProjectPropsPost = {
+  
+  const postValues = {
     title: titleValue,
     description: descriptionValue,
     code: codeString,
     color: color,
     language: selectedLanguage
   }
-
+  
   const selectItems = [
     { id: 0, name: "HTML", value: "xml" },
     { id: 1, name: "CSS", value: "css" },
     { id: 2, name: "Javascript", value: "javascript" }
   ]
+  
+  const pickerID = `color-picker_${Date.now()}`;
 
   function showHighlightCode() {
     setIsHighlighted(!isHighlighted);
   }
 
+  function postProject(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    ProjectsService.postProjects(postValues);
+    setCodeString("")
+    setTitleValue("")
+    setDescriptionValue("")
+    setSelectedLanguage("xml")
+    setColor("#FFFFFF")
+  }
+  
   function handleLanguageChange(event: ChangeEvent<HTMLSelectElement>) {
     const value = event.target.value;
     setSelectedLanguage(value)
@@ -64,18 +68,8 @@ export function Home() {
     setDescriptionValue(value);
   }
 
-  function handleColorChange(e: ChangeEvent<HTMLInputElement>) {
-    setColor(e.target.value)
-  }
-
-  function postProject(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    ProjectsService.postProjects(postValues);
-    setCodeString("")
-    setTitleValue("")
-    setDescriptionValue("")
-    setSelectedLanguage("xml")
-    setColor("#FFFFFF")
+  function handleColorChange(event: ChangeEvent<HTMLInputElement>) {
+    setColor(event.target.value)
   }
 
   return (
@@ -85,7 +79,7 @@ export function Home() {
         <Menu />
 
         <div className="w-full flex flex-col justify-center gap-8 flex-grow-2">
-          <div className="flex min-h-[300px] rounded-lg p-6" style={{ backgroundColor: color }}>
+          <div className="flex min-h-[300px] rounded-lg p-6" style={{ backgroundColor: color }} id="code__screen">
             <div className="flex flex-col gap-2 bg-gray-dark w-full flex-grow p-4 rounded-lg" >
               <div className="flex gap-2">
                 <div className="bg-mac-red size-3 rounded-full" />
@@ -100,12 +94,14 @@ export function Home() {
               />
 
               {isHighlighted && (
-                <SyntaxHighlighter language={selectedLanguage} style={atomOneDark} customStyle={{
-                  width: "100%",
-                  background: "#141414"
-                }}>
-                  {codeString}
-                </SyntaxHighlighter>
+                <div>
+                  <SyntaxHighlighter language={selectedLanguage} style={atomOneDark} customStyle={{
+                    width: "100%",
+                    background: "#141414"
+                  }}>
+                    {codeString}
+                  </SyntaxHighlighter>
+                </div>
               )}
             </div>
           </div>
@@ -179,12 +175,16 @@ export function Home() {
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="box-border border-transparent border-4 w-full bg-blue-300 text-blue-950 text-center p-2 rounded-lg duration-300 hover:bg-blue-200 active:border-blue-300/75"
-          >
-            Salvar projeto
-          </button>
+          <div className="flex flex-col gap-3 md:flex-row">
+            <button
+              type="submit"
+              className="box-border border-transparent border-4 w-full bg-blue-300 text-blue-950 text-center p-1 rounded-lg duration-300 md:w-1/2 hover:bg-blue-200 active:border-blue-300/75"
+            >
+              Salvar projeto
+            </button>
+
+            <ExportButton />
+          </div>
         </form>
       </div>
     </div>
