@@ -15,9 +15,9 @@ export function ExportButton() {
     ]);
 
     const [imageButtons, setImageButtons] = useState([
-        { id: "0", text: "PDF", value: "pdf", selected: false },
-        { id: "1", text: "JPG", value: "jpg", selected: true },
-        { id: "2", text: "PNG", value: "png", selected: false }
+        { id: "0", text: "PNG", value: "png", selected: false },
+        { id: "1", text: "SVG", value: "svg", selected: true },
+        { id: "2", text: "JPG", value: "jpg", selected: false }
     ]);
 
     const exportValues = {
@@ -28,16 +28,13 @@ export function ExportButton() {
 
     async function exportCode() {
         const img = await screenshotCodeScreen()
-        if (img) {
-            if (exportValues.type === 'pdf') {
-                const pdf = new jsPDF({
-                    orientation: img.width > img.height ? 'l' : 'p',
-                    unit: 'px',
-                    format: [img.width, img.height]
-                })
 
-                pdf.addImage(img.src, 'JPEG', 0, 0, img.width, img.height)
-                pdf.save(`${exportValues.filename}.pdf`)
+        if (img) {
+            if (exportValues.type === 'svg') {
+                const svg = createSVG(img.width, img.height, img.src);
+
+                const blob = new Blob([svg], { type: 'image/svg+xml' })
+                saveAs(blob, `${exportValues.filename}.svg`)
             } else {
                 const blob = await fetch(img.src).then(response => response.blob());
                 saveAs(blob, `${exportValues.filename}.${exportValues.type}`)
@@ -45,6 +42,25 @@ export function ExportButton() {
         } else {
             console.error("Não foi possivel capturar a imagem!")
         }
+    }
+
+    function createSVG(width: number, height: number, src: string) {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        svg.setAttribute("width", `${width}`);
+        svg.setAttribute("height", `${height}`);
+        
+        const img = document.createElementNS("http://www.w3.org/2000/svg", "image")
+        img.setAttribute("x", '0')
+        img.setAttribute("y", '0')
+        img.setAttribute("width", `${width}`)
+        img.setAttribute("height", `${height}`)
+        img.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", src)
+
+        svg.appendChild(img);
+        const svgString = new XMLSerializer().serializeToString(svg);
+
+        return svgString
     }
 
     async function screenshotCodeScreen() {
@@ -95,7 +111,7 @@ export function ExportButton() {
     }
 
     return (
-        <div className="flex w-1/2">
+        <div className="flex w-full md:w-1/2">
             <button
                 type="button"
                 onClick={exportCode}
