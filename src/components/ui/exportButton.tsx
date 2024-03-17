@@ -3,7 +3,6 @@ import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { useState, ChangeEvent } from 'react';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
-import jsPDF from 'jspdf'
 
 export function ExportButton() {
     const codeScreen = document.querySelector('#code__screen');
