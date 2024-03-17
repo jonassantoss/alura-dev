@@ -1,20 +1,27 @@
 import { ProjectProps } from '../src/components/ui/project';
 import { v4 as uuid } from 'uuid';
 import avatar from '../src/assets/Avatar.png'
-import { ProjectPropsPost } from '../src/routes/home';
+
+interface ProjectPropsPost {
+    title: string
+    description: string
+    code: string
+    color: string
+    language: string
+}
 
 const getProjects = async (): Promise<ProjectProps[]> => {
     return await fetch('http://localhost:3000/projects')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro: Falha na requisição');
-        }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro: Falha na requisição');
+            }
 
-        return response.json();
-    }) as ProjectProps[];
+            return response.json();
+        }) as ProjectProps[];
 }
 
-const postProjects = async ({title, description, code, color, language}: ProjectPropsPost) => {
+const postProjects = async ({ title, description, code, color, language }: ProjectPropsPost) => {
     return await fetch('http://localhost:3000/projects', {
         method: 'POST',
         headers: {
@@ -33,17 +40,17 @@ const postProjects = async ({title, description, code, color, language}: Project
             language
         })
     })
-    .then(data => {
-        if (!data.ok) {
-            throw new Error('Erro: Falha na requisição')
-        }
+        .then(data => {
+            if (!data.ok) {
+                throw new Error('Erro: Falha na requisição')
+            }
 
-        return data.json();
-    })
-    .catch(error => {
-        alert('Erro: Falha na requisição')
-        console.error(`${error}`)
-    })
+            return data.json();
+        })
+        .catch(error => {
+            alert('Erro: Falha na requisição')
+            console.error(`${error}`)
+        })
 }
 
 export const ProjectsService = {
