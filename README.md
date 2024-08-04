@@ -13,6 +13,8 @@ Este é um desafio desenvolvido para fins didaticos da Alura. O projeto consiste
 - Json-server
 - Radix UI
 - React Router DOM
+- HTML2Canvas
+- File Saver
 
 ## Como usar a Fake API
 
