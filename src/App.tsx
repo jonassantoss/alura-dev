@@ -1,15 +1,33 @@
-import { BrowserRouter, Route,Routes } from "react-router-dom"
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import { Home } from "./routes/home"
-import { Community } from "./routes/community"
+import { ErrorPage } from './components/error-page';
+import { Root } from './components/root';
+import { Community } from './routes/community';
+import { NewProject } from './routes/newProject';
+import { Project } from './routes/project';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '',
+        element: <NewProject />,
+      },
+      {
+        path: 'comunidade',
+        element: <Community />,
+      },
+      {
+        path: 'projeto/:projectId',
+        element: <Project />,
+      },
+    ],
+  },
+]);
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/comunidade" element={<Community />} />
-      </Routes>
-    </BrowserRouter>
-  )
+  return <RouterProvider router={router} />;
 }

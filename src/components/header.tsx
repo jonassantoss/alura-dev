@@ -1,14 +1,14 @@
-import { MobileMenu } from "./mobileMenu";
-import { SearchBar } from "./ui/searchBar";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { MobileMenu } from './mobileMenu';
+import { SearchBar } from './ui/searchBar';
 
-import logo from "../assets/Logo.png";
-import X from "../assets/close.png";
-import menuIcon from "../assets/menu.svg";
-import searchIcon from "../assets/search.svg";
-import avatar from "../assets/Avatar.png";
+import avatar from '../assets/Avatar.png';
+import logo from '../assets/Logo.png';
+import X from '../assets/close.png';
+import menuIcon from '../assets/menu.svg';
+import searchIcon from '../assets/search.svg';
 
 export function Header() {
   const [menuIconState, setMenuIconState] = useState(menuIcon);
@@ -20,7 +20,7 @@ export function Header() {
 
   function handleSearchButtonClick() {
     setSearchIconState((prevState) =>
-      prevState === searchIcon ? X : searchIcon
+      prevState === searchIcon ? X : searchIcon,
     );
   }
 
@@ -28,20 +28,19 @@ export function Header() {
     <div className="w-full flex justify-between items-center gap-8">
       <div
         className={`relative flex items-center ${
-          searchIconState === X ? "w-3/4" : ""
-        }`}
-      >
+          searchIconState === X ? 'w-3/4' : ''
+        }`}>
         {searchIconState === X && (
           <SearchBar
             className={`absolute top-1/2 transform -translate-y-1/2 ${
-              searchIconState === X ? "block" : "hidden"
+              searchIconState === X ? 'block' : 'hidden'
             }`}
             placeholder="Busque por algo"
           />
         )}
-        <Link to={"/"}>
+        <Link to={'/'}>
           <img
-            className={`h-1/2 ${searchIconState === X ? "hidden" : "block"}`}
+            className={`h-1/2 ${searchIconState === X ? 'hidden' : 'block'}`}
             src={logo}
             alt=""
           />
@@ -54,7 +53,7 @@ export function Header() {
       />
 
       <div className="flex justify-end">
-        <div className="md:hidden">
+        <div className="sm:hidden">
           <img
             className="size-11"
             src={searchIconState}
@@ -66,8 +65,7 @@ export function Header() {
         <DropdownMenu.Root onOpenChange={handleMenuOpenChange}>
           <DropdownMenu.Trigger
             asChild
-            className="min-w-10 rounded-lg duration-100 ease-linear hover:bg-blue-300/[8%] active:bg-blue-300/15"
-          >
+            className="min-w-10 rounded-lg duration-100 ease-linear hover:bg-blue-300/[8%] active:bg-blue-300/15">
             <img className="size-11 lg:hidden" src={menuIconState} alt="" />
           </DropdownMenu.Trigger>
 
